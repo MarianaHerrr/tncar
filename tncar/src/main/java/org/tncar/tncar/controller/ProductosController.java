@@ -68,7 +68,7 @@ public class ProductosController {
 	public String  guardar(Producto producto,BindingResult result, @RequestParam("archivoImagen") MultipartFile multiPart, RedirectAttributes model) {
 		System.out.println(producto);
 		Usuario u = new Usuario();
-		u.setId(1);
+		u.setId(9);
 		u.setNombre("");
 		u.setEmail("");
 		u.setPassword("");
