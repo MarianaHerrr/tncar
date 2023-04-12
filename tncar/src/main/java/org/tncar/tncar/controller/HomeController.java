@@ -76,7 +76,7 @@ public class HomeController {
 		usuario.setPassword(encriptado);
 		//usuario.setPassword("{noop}" + usuario.getPassword());
 		Perfil per = new Perfil();
-		per.setId(1);
+		per.setId(3);
 		usuario.agregar(per);
 		serviceUsuarios.agregar(usuario);
 		System.out.println(usuario);
