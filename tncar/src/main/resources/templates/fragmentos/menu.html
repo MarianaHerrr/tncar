@@ -1,0 +1,80 @@
+
+      <nav class="navbar navbar-expand-md  navbar-dark fixed-top  cabeceralogo" th:fragment="menu-principal">
+
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+            <img id="Logo" th:src="@{/images/LOGOT.png}"alt="">
+            <h3>TNC<span class="main-color">ar</span></h3>
+            
+           
+            
+           
+
+
+        <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+          <ul class="navbar-nav mr-auto ul">
+            
+            </li>
+            <li class="nav-item">
+             <a class="nav-link" th:href="@{/}">Home</a>
+            </li> 
+            <li class="nav-item">
+             <a class="nav-link" th:href="@{/acerca}">Acerca</a>
+            </li> 
+            <li class="nav-item">
+             <a class="nav-link" th:href="@{/contacto}">Contacto</a>
+            </li> 
+            <li class="nav-item" sec:authorize="hasAnyAuthority('Usuario')">
+             <a class="nav-link" th:href="@{/catalogoproductos}">Catalogo Productos</a>
+            </li>
+            <li class="nav-item" sec:authorize="hasAnyAuthority('Usuario')">
+             <a class="nav-link" th:href="@{/catalogoservicios}">Catalogo Servicios</a>
+            </li>
+            <li class="nav-item" sec:authorize="hasAnyAuthority('Administrador','Empleado')">
+             <a class="nav-link" th:href="@{/productos/indexPaginado}">Productos</a>
+            </li>
+               <li class="nav-item" sec:authorize="hasAnyAuthority('Administrador','Empleado')">
+             <a class="nav-link" th:href="@{/categorias/indexPaginado}">Categorias</a>
+            </li>
+            <li class="nav-item" sec:authorize="hasAnyAuthority('Administrador','Empleado')">
+             <a class="nav-link" th:href="@{/servicios/indexPaginado}">Servicios</a>
+            </li> 
+             <li class="nav-item"sec:authorize="hasAnyAuthority('Administrador','Empleado')">
+             <a class="nav-link" th:href="@{/tiposserv/indexPaginado}">Tipo Servicio</a >
+            </li> 
+             <li class="nav-item" sec:authorize="hasAnyAuthority('Administrador','Empleado')">
+             <a class="nav-link" th:href="@{/automoviles/indexPaginado}">Autos</a >
+            </li>
+             <li class="nav-item" sec:authorize="hasAnyAuthority('Administrador','Empleado')">
+             <a class="nav-link" th:href="@{/contrataciones/indexPaginado}">Contrataciones</a>
+            </li> 
+            <li class="nav-item" sec:authorize="hasAnyAuthority('Administrador')">
+             <a class="nav-link" th:href="@{/perfiles/index}">Perfiles</a>
+            </li> 
+            <li class="nav-item" sec:authorize="hasAnyAuthority('Administrador')">
+             <a class="nav-link" th:href="@{/usuarios/indexPaginado}">Clientes</a>
+            </li>
+            <li class="nav-item" sec:authorize="hasAnyAuthority('Usuario')">
+             <a class="nav-link" th:href="@{/getCart}">Carrito</a>
+            </li>
+             
+            
+           
+          </ul>
+          <div class="d-flex" role="search" style="padding-right: 20px;">
+			  <div sec:authorize="isAnonymous()">
+          <a class="btn btn-primary" th:href="@{/login}">Ingresar</a>&nbsp;
+          <a class="btn btn-primary" th:href="@{/signup}">Registrarse</a>&nbsp;
+              </div> 
+              <div style="margin-right:-220px;" sec:authorize="isAuthenticated()">
+				  <span class="text-primary">Bienvenido : </span>&nbsp;
+				  <span sec:authentication="name" style="color: white;"></span>&nbsp;&nbsp;
+          <a class="btn-sm btn-danger btn-salir" th:href="@{/logout}">Salir</a> 
+          </div>
+          </div>  
+          
+        </div>
+      </nav>
+    

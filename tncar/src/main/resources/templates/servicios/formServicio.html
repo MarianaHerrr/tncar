@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="favicon.ico">
+
+    <title>TNCar | Creación de Categorías</title>
+    <!-- Bootstrap core CSS -->
+    <link th:href="@{/bootstrap/css/bootstrap.min.css}" rel="stylesheet">
+    <!-- Custom styles for this template -->
+    <link th:href="@{/bootstrap/css/jumbotron.css}" rel="stylesheet">
+    <link th:href="@{/bootstrap/css/sticky-footer-navbar.css}" rel="stylesheet">
+     <link  th:href="@{/bootstrap/css/estilos.css}" rel="stylesheet">
+   <script src="https://kit.fontawesome.com/8883eb0c4f.js" crossorigin="anonymous"></script>
+  </head>
+
+  <body>
+
+   <header   th:insert="~{fragmentos/menu.html::menu-principal}">
+      
+    </header>
+
+    <main>     
+      <hr>
+            <div class="container"> 
+
+        <div class="card">
+          <h4 class="card-header"><strong>Datos del nuevo Servicio</strong></h4>              
+          <div class="card-body">
+			 
+            <form method="post"  th:action="@{/servicios/guardar}" th:object="${servicio}"> 
+				
+				 <div th:if="${#fields.hasErrors('*')}" class='alert alert-danger'
+				 role='alert'>Por favor corrija los errores encontrados: 
+				 <ul>
+					 <li th:each="err : ${#fields.errors('*')}" th:text="${err}"></li>
+				 </ul>
+				 </div>
+				             
+              <div class="row">
+                <div class="col-md-3"> 
+                  <div class="form-group">
+                    <label for="nombre">Nombre</label>
+                    <input type="hidden" th:field="*{id}">
+                    <input type="text" class="form-control" id="nombre" name="nombre" th:field="*{nombre}" placeholder="Nombre del Servicio" required="required">
+                  </div>
+                </div>
+                  </div>
+                <div class="row">
+              <div class="col-md-3">
+						 <div class="form-group">
+                    <label for="fecha">Descripcion</label>
+                    <textarea type="tex" class="form-control" name="descripcion" id="descripcion" th:field="*{descripcion}"placeholder="descripcion" required="required"></textarea>
+                  </div> 
+                  </div> 
+              
+                <div class="col-md-3"> 
+                  <div class="form-group">
+                    <label for="salario">Costo</label>
+                    <input type="text" class="form-control" name="costo" id="costo" th:field="*{costo}" placeholder="Costo del Servicio" required="required">
+                  </div>
+                </div>  
+                <div class="col-md-3"> 
+                  <div class="form-group">
+                    <label for="fecha">Fecha del Servicio</label>
+                    <input type="text" class="form-control" name="fecha" id="fecha" th:field="*{fecha}"placeholder="Fecha del servicio" required="required">
+                  </div>  
+                </div>   
+                   <div class="col-md-3"> 
+                  <div class="form-group">
+                    <label for="categoria">Tipo de Servicio</label>
+                    <select class="form-control" th:field="*{tiposerv.id}" name="tiposerv" id="tiposerv">
+                      <option th:each="tiposerv: ${tiposserv}"
+                      th:value="${tiposerv.id}"
+                      th:text="${tiposerv.nombre}"></option>
+                  
+                    </select>
+                  </div>               
+              </div>
+              <div class="col-md-3"> 
+                  <div class="form-group">
+                    <label for="categoria">Automovil</label>
+                    <select class="form-control" th:field="*{automovil.id}" name="automovil" id="automovil">
+                      <option th:each="automovil: ${automoviles}"
+                      th:value="${automovil.id}"
+                      th:text="${automovil.marca}"></option>
+                  
+                    </select>
+                  </div>               
+              </div>
+              </div>
+              
+              
+              <button type="submit" class="btn btn-primaty botoon">Guardar</button>  
+            </form>
+          </div>
+        </div>
+      </div> <!-- /container -->
+
+    </main>
+
+    <footer class="pie-pagina" th:insert="~{fragmentos/pie.html::pie}">
+      
+    </footer>
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script th:src="@{/bootstrap/js/bootstrap.min.js}"></script> 
+    <script th:src="@{/tinymce/tinymce.min.js}"></script>
+    <script>
+      
+      $(function () {
+          $("#fecha").datepicker({dateFormat: 'dd-mm-yy'});
+        }
+      );
+      
+      
+      tinymce.init({
+          selector: '#detalles',
+          plugins: "textcolor, table lists code",
+          toolbar: " undo redo | bold italic | alignleft aligncenter alignright alignjustify \n\
+                    | bullist numlist outdent indent | forecolor backcolor table code"
+      });
+      
+      
+      
+    </script>    
+  </br>
+</html>

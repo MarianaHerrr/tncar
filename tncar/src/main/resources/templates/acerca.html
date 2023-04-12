@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="favicon.ico">
+
+    <title>TNCar | Acerca</title>
+    <!-- Bootstrap core CSS -->
+    <link th:href="@{/bootstrap/css/bootstrap.min.css}" rel="stylesheet">
+    <!-- Custom styles for this template -->
+    <link th:href="@{/bootstrap/css/jumbotron.css}" rel="stylesheet">
+        <link  th:href="@{bootstrap/css/estilos.css}" rel="stylesheet">
+    <link th:href="@{/bootstrap/css/sticky-footer-navbar.css}" rel="stylesheet">
+  </head>
+
+  <body class="f">
+
+     <header  th:insert="~{fragmentos/menu.html::menu-principal}">
+      
+    </header>  
+
+      <div class="conta1">
+		  <div class="fondo">
+			 <img th:src="@{/images/porta.jpg}" alt="imagen1">
+           <h3 class="card-header"><strong>CONOCENOS</strong> </h3> 
+            <div class="card-body">
+			
+      </div>
+			 </div>
+		</div>
+		
+		<h2 id="quienes">¿Quiénes somos?</h2><br><br>
+<h5 id="TextQ">Somos un grupo de amigos expertos y apasionados por los autos, en
+    donde ofrecemos a nuestros clientes el mejor servicio con la mejor
+    calidad y sobre todo al mejor precio.
+    Contamos con las mejores marcas de rines, llantas, suspensiones,
+    aerodinámica, performance, wraps, filtros de aire, sistemas de escape,
+    entre otros.
+</h5>
+<h2 id="quienes">Visión</h2><br><br>
+<h5 id="TextQ">Esperamos que con la pagina web del negocio obtengamos más ventas 
+    de las cuales ya contamos, y poder hacer crecer el negocio y contar con 
+    más sucursales.
+    También a que el tuning llegue a más personas y que esta pasión por 
+    modificar los carros crezca más.
+</h5>
+<h2 id="quienes">Misión</h2><br><br>
+<h5 id="TextQ">No es el de hacer que las personas corran a modificar su auto para que 
+    sea un lujo más, si no el de hacer que las personas cuiden lo que es 
+    suyo y de que manejar sea placentero para quien lo hace, manejar no 
+    tiene por qué ser algo cotidiano si se puede convertir en un viaje de 
+    diversión y entretenimiento. Entre otros, los conceptos principales del 
+    concepto, es la transformación completa del vehículo, desde estética 
+    hasta desempeño del motor.
+</h5>
+<br>
+<br>
+
+       <footer  th:insert="~{fragmentos/pie.html::pie}">
+      
+    </footer>
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script th:src="@{/bootstrap/js/bootstrap.min.js}"></script>     
+  </body>
+</html>

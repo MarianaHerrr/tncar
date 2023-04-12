@@ -1,0 +1,88 @@
+   <!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="favicon.ico">
+
+    <title>TNCar | Inicio</title>
+    <!-- Bootstrap core CSS -->
+      <link th:href="@{/bootstrap/css/bootstrap.min.css}" rel="stylesheet">
+    <!-- Custom styles for this template -->
+    <link th:href="@{/bootstrap/css/jumbotron.css}" rel="stylesheet">
+    <link th:href="@{/bootstrap/css/sticky-footer-navbar.css}" rel="stylesheet">
+    <link href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" rel="stylesheet">
+     <link  th:href="@{/bootstrap/css/estilos.css}" rel="stylesheet">
+
+
+   <script src="https://kit.fontawesome.com/8883eb0c4f.js" crossorigin="anonymous"></script>
+  </head>
+
+
+<body>
+     <header  th:insert="~{fragmentos/menu.html::menu-principal}">
+      
+    </header>
+ 
+	   <div class="conta">
+		  <div class="fondo">
+			 <img th:src="@{/logos/automovil1.jpg}" alt="imagen1">
+			  
+			  <h3>TNC<span class="main-color">ar</span></h3>
+			 <p id="slogan">"En donde el tunnig nunca muere".</p>
+			 <div class="busqueda">
+			 <!-- Main jumbotron for a primary marketing message or call to action -->
+      <div class="jumbotron">
+        <div class="container">
+          <h2>Encuentra el producto que necesitas</h2>
+         <h5>Puedes buscar por categoría o producto.</h5> 
+          <form class="form-inline" th:object="${categoria}" method="post" th:action="@{/search}">
+            <input type="search" class="form-control mb-3" id="exampleFormControlInput1" placeholder="Escriba una búsqueda" name="nombre">&nbsp;
+            <select class="custom-select custom-select mb-3" >
+              <option th:each="categoria:${categorias}"
+              th:value="${categoria.id}"
+              th:text="${categoria.nombreC}"></option>
+            </select>&nbsp;
+            <button type="submit" class="btn">Buscar</button>
+          </form>
+        </div>
+      </div>
+      <hr>
+      
+ 
+      </div>
+			 </div>
+		</div>
+		
+		 <!-- PRODUCTOS DESTACADOS -->
+<section class="contecen" >
+            <h3 id="Titul">PRODUCTOS DESTACADOS</h3>
+            <div class="conte" th:each="producto:${productos}">
+               
+			<img th:src="@{/images/{img}(img=${producto.imagen})}">  
+                <h4 class="text2" th:text="${producto.nombreP}"></h4>
+                <h3 class="text" th:text="${producto.descripcion}"></h3>
+                <h4 class="textpre" th:text="'$'+${producto.precio}"></h4>
+               <a class="btn btn-primary bt" th:href="@{/productos/detalle(id=${producto.id})}" role="button">Ver detalles &raquo;</a>           
+            
+            </div> 
+        </section> 
+       
+		  <hr>	
+      </div> <!-- /container -->   
+     <footer  th:insert="~{fragmentos/pie.html::pie}">
+      
+    </footer>
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="bootstrap/js/bootstrap.min.js"></script>    
+    
+   
+     
+  </body>
+</html>

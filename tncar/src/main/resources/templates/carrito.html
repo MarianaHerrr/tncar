@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+
+<meta charset="utf-8">
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="description" content="">
+<meta name="author" content="">
+
+<title>TNCar | Carrito</title>
+
+
+<!-- Bootstrap core CSS -->
+ <link th:href="@{/bootstrap/css/bootstrap.min.css}" rel="stylesheet">
+<link th:href="@{/vendor/bootstrap/css/bootstrap.min.css}"
+	rel="stylesheet">
+
+<!-- Custom styles for this template -->
+<link th:href="@{/bootstrap/css/jumbotron.css}" rel="stylesheet">
+    <link th:href="@{/bootstrap/css/sticky-footer-navbar.css}" rel="stylesheet">
+    <link href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" rel="stylesheet">
+     <link  th:href="@{/bootstrap/css/estilos.css}" rel="stylesheet">
+   <script src="https://kit.fontawesome.com/8883eb0c4f.js" crossorigin="anonymous"></script>
+<link th:href="@{/css/heroic-features.css}" rel="stylesheet">
+
+</head>
+
+<body>
+
+	<!-- Navigation -->
+	<header   th:insert="~{fragmentos/menu.html::menu-principal}">
+      
+    </header>
+<br><br>
+	<!-- Page Content -->
+	<div class="container">
+		
+		<h1 class="mt-4 mb-3">
+			TNCar <small>Carrito</small>
+		</h1>
+
+		<!-- Blog Post -->
+		<div class="card mb-4">
+			<div class="card-body">
+				<div class="row">
+					<div class="col-lg-9">
+						<table class="table">
+							<thead>
+								<tr>
+									<th scope="col">Producto</th>
+									<th scope="col">Precio</th>
+									<th scope="col">Cantidad</th>
+									<th scope="col">Total</th>
+									<th scope="col">Acción</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr th:each="dorden:${cart}">
+									<td th:text="${dorden.nombre}"></td>
+									<td th:text="${dorden.precio}"></td>
+									<td th:text="${dorden.cantidad}"></td>
+									<td th:text="${dorden.total}"></td>
+									<td><a th:href="@{/delete/cart/{id}   (id=${dorden.producto.id}) }" class="btn btn-danger">Quitar</a></td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+
+					<div class="col-lg-3">
+						<h2 class="card-title">SUBTOTAL</h2>
+
+						<ul class="list-group">
+							<li class="list-group-item"><h5 th:text="${orden.total}"></h5></li>
+							<a th:href="@{/order}" class="btn btn-dark">Ver Orden</a>
+						</ul>
+					</div>
+
+
+				</div>
+			</div>
+		</div>
+	</div> <br><br><br><br><br><br>
+	<!-- /.container -->
+
+	<!-- Footer -->
+	<footer   th:insert="~{fragmentos/pie.html::pie}">
+      
+    </footer>
+
+	<!-- Bootstrap core JavaScript -->
+	<script th:src="@{/vendor/jquery/jquery.min.js}"></script>
+	<script th:src="@{/vendor/bootstrap/js/bootstrap.bundle.min.js}"></script>
+
+</body>
+
+</html>

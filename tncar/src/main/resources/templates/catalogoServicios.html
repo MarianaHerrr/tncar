@@ -1,0 +1,72 @@
+   <!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="favicon.ico">
+
+    <title>TNCar | Catalogo Servicios</title>
+    <!-- Bootstrap core CSS -->
+      <link th:href="@{/bootstrap/css/bootstrap.min.css}" rel="stylesheet">
+    <!-- Custom styles for this template -->
+    <link th:href="@{/bootstrap/css/jumbotron.css}" rel="stylesheet">
+    <link th:href="@{/bootstrap/css/sticky-footer-navbar.css}" rel="stylesheet">
+    <link href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" rel="stylesheet">
+     <link  th:href="@{/bootstrap/css/estilos.css}" rel="stylesheet">
+
+
+   <script src="https://kit.fontawesome.com/8883eb0c4f.js" crossorigin="anonymous"></script>
+  </head>
+
+
+<body  class="body1">
+     <header  th:insert="~{fragmentos/menu.html::menu-principal}">
+      
+    </header>
+    
+		
+	
+<main>
+	
+
+		  
+			
+		<section class="contecen3" >
+			
+            <h3 class="card-header"><strong>SERVICIOS</strong> </h3>
+            <div class="contrata" style="margin-right:-3000px;">
+            <a class="btn btn-primary bt contra"  th:href="@{/contrataciones/nueva}"  role="button"><i class="fa-solid fa-car-wrench"></i>Contartar Servicio</a>                
+          </div>
+            <div class="conte3" th:each="tiposerv: ${tiposserv}">
+               
+			<img th:src="@{/images/{img}(img=${tiposerv.imagen})}">  
+                <h4 class="text23" th:text="${tiposerv.nombre}"></h4>
+                <h2 class="text3" th:text="${tiposerv.descripcion}"></h2>
+                
+               <a class="btn btn-primary bt" th:href="@{/tiposserv/detalle(id=${tiposerv.id})}" role="button">Ver detalles &raquo;</a>           
+            
+            </div> 
+        </section> 
+       
+	  
+	  </div> 
+	  
+   </main>
+   
+     <footer th:insert="~{fragmentos/pie.html::pie}">
+      
+    </footer>
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="bootstrap/js/bootstrap.min.js"></script>    
+    
+   
+     
+  </body>
+</html>
+

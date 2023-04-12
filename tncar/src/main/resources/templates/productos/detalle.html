@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="favicon.ico">
+
+    <title>TNCar | Detalle</title>
+    <!-- Bootstrap core CSS -->
+    <link th:href="@{/bootstrap/css/bootstrap.min.css}" rel="stylesheet">
+    <!-- Custom styles for this template -->
+    <link th:href="@{/bootstrap/css/jumbotron.css}" rel="stylesheet">
+    <link th:href="@{/bootstrap/css/sticky-footer-navbar.css}" rel="stylesheet">
+    <link  th:href="@{/bootstrap/css/estilos.css}" rel="stylesheet">
+  </head>
+
+  <body>
+
+    <header  th:insert="~{fragmentos/menu.html::menu-principal}">
+      
+    </header>
+    <main role="main">
+      <hr>
+      <form th:action="@{/cart}" method="post">
+		  <input type="hidden" th:value="${producto.id}" name="idProducto">
+      <div class="container"> 
+
+        <div class="row">
+          
+          <div class="col-md-9">
+            <div class="card tab">
+              <h4 class="card-header letras">Detalles del producto <strong th:text="${producto.nombreP}"></strong></h4>              
+              <div class="card-body">
+				  <div class="alert alert-danger  msj" role="alert" sec:authorize="isAnonymous()"> ¿Te interesa este Producto <strong> Registrate</strong> Para poder adquirirlo</div>
+                <h5 class="card-title letras"><strong>Categoria: </strong> <span th:text="${producto.categoria.nombreC}"></span></h5>
+                <h6 class="card-title letras"><strong>Marca: </strong> <span th:text="${producto.marca}"></span></h6>                
+                <h6 class="card-title letras"><strong>Precio: </strong><span th:text="'$'+${producto.precio}"></span></h6>
+                <h6 class="card-title letras"><strong>Descuento: </strong><span th:text="${producto.descuento}+'%'"></span></h6>
+                <h6 class="card-title letras"><strong>PDescuento: </strong><span th:text="'$'+(${producto.precio}-(${producto.precio}*(${producto.descuento}/100)))"></span></h6>
+                
+               <div class="card bg-ligth mb-3">
+				   <div class="card-body decrip">
+					   <h5 class="card-title">Descripcion del producto</h5>
+					   <p class="card-text letras" th:text="${producto.descripcion}"></p>
+
+				   </div>
+				   <li class="list-group-item"><h6>
+										Cantidad: <input type="number" id="cantidad" name="cantidad"
+											autocomplete="off" min="1" max="5" value="1">
+									</h6></li>
+			   </div>
+        		<button type="submit" class="btn btn-primaty botoon" sec:authorize="isAuthenticated() and hasAnyAuthority('Usuario')">Adquirir</button>					
+              </div>
+            </div>  
+          </div>
+          <div class="col-md-3">            
+            <img class="rounded mx-auto d-block" th:src="@{/images/{img}(img=${producto.imagen})}" alt="Generic placeholder image" width="220" height="220">            
+          </div>
+        </div>
+
+      </div>
+      </form>
+    </main>
+
+     <footer th:insert="~{fragmentos/pie.html::pie}">
+      
+    </footer>
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script th:src="@{/bootstrap/js/bootstrap.min.js}"></script>
+  </body>
+</html>

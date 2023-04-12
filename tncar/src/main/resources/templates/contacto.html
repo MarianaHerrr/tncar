@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="favicon.ico">
+
+    <title>EmpleosApp | Contacto</title>
+    <!-- Bootstrap core CSS -->
+    <link th:href="@{/bootstrap/css/bootstrap.min.css}" rel="stylesheet">
+    <!-- Custom styles for this template -->
+    <link th:href="@{/bootstrap/css/jumbotron.css}" rel="stylesheet">
+        <link  th:href="@{bootstrap/css/estilos.css}" rel="stylesheet">
+    <link th:href="@{/bootstrap/css/sticky-footer-navbar.css}" rel="stylesheet">
+      <script th:src="@{https://kit.fontawesome.com/8883eb0c4f.js}" crossorigin="anonymous"></script>
+  </head>
+
+  <body class="f">
+
+     <header  th:insert="fragmentos/menu.html::menu-principal">
+      
+    </header>  
+
+     <main>
+      <div class="container"> 
+
+        <div class="card">
+          <h4 class="card-header"><strong>Contacto</strong></h4>              
+          <div class="card-body">
+            <form method="post">              
+              <div class="row">
+                <div class="col-md-3"> 
+                  <div class="form-group">
+                    <label for="nombre">Nombre</label>
+                    
+                    <input type="text" class="form-control" id="nombre" name="nombre" placeholder="Escriba su nombre" required="required">
+                  </div>
+                </div> 
+                          
+              </div> 
+              <div class="row">
+                <div class="col-md-3"> 
+                  <div class="form-group">
+                    <label for="nombre">Correo electronico</label>
+                    
+                    <input type="email" class="form-control" id="nombre" name="nombre" placeholder="ejemplo@gmail.com" required="required">
+                  </div>
+                </div> 
+               </div> 
+               <div class="row">
+                <div class="col-md-3"> 
+                  <div class="form-group">
+                    <label for="nombre">Numero telefonico</label>
+                    
+                    <input type="email" class="form-control" id="nombre" name="nombre" placeholder="(+52)" required="required">
+                  </div>
+                </div> 
+                <div class="contacto">
+            <section id="mapa">
+                <h1><i class="fa-solid fa-location-dot"></i>  Ven conócenos</h1>
+                <iframe class="map"
+                    src="https://maps.google.com/maps?width=100%25&amp;height=600&amp;hl=es&amp;q=Segunda%20Privada%20Sta.%20Ana,%2057900%20Ciudad%20de%20Mexico,%20CDMX+(TNCar)&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"><a
+                        href="https://www.gps.ie/car-satnav-gps/"></a></iframe>
+            </section>
+        
+
+        </div>
+               </div>
+              <hr>
+              <button type="submit" title="Guardar el registro."  class="btn btn-primary botoon">Enviar</button>  
+            </form>
+          </div>
+        </div>
+      </div> <!-- /container -->
+      <section class="contecen-c" >
+      <div class="cont-text">
+                <div class="conte-c">
+                    <i class="fa-solid fa-map-location"></i>
+                    <h2>Dirección</h2>
+                     <hr>
+                    
+                    <p> Segunda Privada Sta. Ana, 57900 Ciudad de Mexico, CDMX</p>
+                    
+                </div>
+            <div class="conte-c">
+                    <i class="fa-solid fa-envelope"></i>
+                    <h2>Correo Electronico</h2>
+                        <hr>
+                        <p>tncaroficial@gmail.com</p>
+                        
+                    
+                </div>
+            <div class="conte-c">
+                    <i class="fa-solid fa-phone"></i>
+                    <h2>Número:</h2>
+                        <hr>
+                    
+                        <p>5678191416<br>5598784516</p>
+                       
+                    
+                </div>
+            <div class="conte-c">
+                <article>
+                    <i class="fa-regular fa-clock"></i>
+                    <h2>Horarios:
+                        <hr>
+                    </h2>
+                    <p>
+                    <ul class="lista">
+                        <li>Lunes a viernes: 08:00-19:hrs.</li>
+                        <li>Sábado: 09:00-18:00 hrs.</li>
+                        <li>Domingo: 09:00-14:00 hrs.</li>
+                    </ul>
+                    </p>
+                </div>
+        </div>
+        </section>
+</main>
+       <footer  th:insert="~{fragmentos/pie.html::pie}">
+      
+    </footer>
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script th:src="@{/bootstrap/js/bootstrap.min.js}"></script>     
+  </body>
+</html>
